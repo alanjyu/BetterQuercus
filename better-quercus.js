@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Better Quercus
-// @namespace    https://github.com/alanjyu
+// @namespace    https://github.com/alanjyu/better-quercus
 // @version      0.1
 // @description  Better Quercus; still experimental.
 // @author       Alan J. Yu
