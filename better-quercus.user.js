@@ -6,8 +6,8 @@
 // @description  Better Quercus; still experimental.
 // @author       Alan J. Yu
 // @match        http*://q.utoronto.ca/courses/*/files/*
-// @updateURL    https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quercus.js
-// @downloadURL  https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quercus.js
+// @updateURL    https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quercus.user.js
+// @downloadURL  https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quercus.user.js
 // @supportURL   https://github.com/alanjyu/better-quercus.js/issues
 // ==/UserScript==
 
