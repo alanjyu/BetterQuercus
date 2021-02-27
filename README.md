@@ -7,7 +7,8 @@
 
 ## Scripts
 
-- [better-doc-preview.user.js](https://github.com/alanjyu/better-quercus.js/blob/main/better-doc-preview.user.js) maximizes preview window
+- [better-doc-preview](https://github.com/alanjyu/better-quercus.js/blob/main/better-doc-preview.user.js) maximizes preview window
+- [better-grade-view](https://github.com/alanjyu/better-quercus.js/blob/main/better-grade-view.user.js) provides grades as percentages
 
 ## License
 
