@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         Better Quercus
+// @name         Better Document Preview
 // @namespace    https://alanjyu.com
 // @homepageURL  https://github.com/alanjyu/better-quercus.js
 // @version      1.2
-// @description  Providing a better Quercus experience
+// @description  Maximizes the document preview window
 // @author       Alan J. Yu
 // @match        http*://q.utoronto.ca/courses/*/files/*
 // @updateURL    https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quercus.user.js
