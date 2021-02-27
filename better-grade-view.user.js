@@ -6,6 +6,8 @@
 // @description  Display grade as percentages
 // @author       Alan J. Yu
 // @match        http*://q.utoronto.ca/courses/*/grades
+// @updateURL    https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-grade-view.user.js
+// @downloadURL  https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-grade-view.user.js
 // @grant        none
 // ==/UserScript==
 
