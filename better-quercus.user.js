@@ -2,7 +2,7 @@
 // @name         Better Quercus
 // @namespace    https://alanjyu.com
 // @homepageURL  https://github.com/alanjyu/better-quercus.js
-// @version      1.1
+// @version      1.2
 // @description  Providing a better Quercus experience
 // @author       Alan J. Yu
 // @match        http*://q.utoronto.ca/courses/*/files/*
