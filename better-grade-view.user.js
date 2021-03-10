@@ -3,7 +3,7 @@
 // @namespace    https://alanjyu.com
 // @homepageURL  https://github.com/alanjyu/better-quercus.js
 // @version      0.6.1
-// @description  Display grade as percentages
+// @description  A better grade viewing experience
 // @author       Alan J. Yu
 // @match        http*://q.utoronto.ca/courses/*/grades
 // @updateURL    https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-grade-view.user.js

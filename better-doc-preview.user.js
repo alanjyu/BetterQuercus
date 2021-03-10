@@ -3,7 +3,7 @@
 // @namespace    https://alanjyu.com
 // @homepageURL  https://github.com/alanjyu/better-quercus.js
 // @version      1.3.1
-// @description  Maximizes the document preview window
+// @description  A better document preview experience
 // @run-at       document-idle
 // @author       Alan J. Yu
 // @match        http*://q.utoronto.ca/courses/*/files/*
