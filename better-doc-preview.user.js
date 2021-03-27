@@ -2,7 +2,7 @@
 // @name         Better Document Preview
 // @namespace    https://alanjyu.com
 // @homepageURL  https://github.com/alanjyu/better-quercus.js
-// @version      1.3.1
+// @version      1.2
 // @description  A better document preview experience
 // @run-at       document-idle
 // @author       Alan J. Yu
@@ -22,16 +22,21 @@
          #sequence_footer{position: absolute; top: -54px; right: 25px; padding: 0;} \
          #breadcrumbs{overflow: hidden; max-width: 50%;} \
          .module-sequence-footer{height: 38px;} \
-         .module-sequence-footer-content{border: none!important; animation: none!important; background: none!important; padding: 0!important;}';
+         .module-sequence-footer-content{border: none !important; animation: none !important; background: none !important; padding: 0 !important;}';
     document.body.appendChild(styleSheet);
+
+    // remove header text
     document.getElementById('content').getElementsByTagName('h2')[0].style.display = 'none';
 
     // responsive sidebar
     function responsiveSidebar() {
-        if (window.innerWidth < 1150 && document.body.classList.contains('course-menu-expanded')) {
-            document.body.classList.remove('course-menu-expanded');
-        } else if (window.innerWidth >= 1150 && !document.body.classList.contains('course-menu-expanded')){
-            document.body.classList.add('course-menu-expanded');
+        if (window.innerWidth < 1150) {
+            if (document.body.classList.contains('course-menu-expanded')) {
+                document.body.classList.remove('course-menu-expanded');
+            }
+        } else
+            if (!document.body.classList.contains('course-menu-expanded')) {
+                document.body.classList.add('course-menu-expanded');
         }
     }
     responsiveSidebar();
@@ -45,6 +50,15 @@
     downloadText.style.cssText = 'position: absolute; width: 150px; top: -54px; right: 211.26px;';
     downloadText.querySelector('span').style.cssText = 'font-size: 1rem;';
     downloadText.querySelector('span > a').innerHTML = 'Download';
+    downloadText.querySelector('span > a').style.cssText = 'color: #000; text-decoration: none;';
+
+    // trigger the inner 'a' (download) event once the button is clicked anywhere
+    downloadText.addEventListener('click', evt => {
+        downloadText.querySelector('span > a').click();
+    });
+    downloadText.querySelector('span').addEventListener('click', evt => {
+        downloadText.querySelector('span > a').click();
+    });
 
     // check if element is loaded
     const checkElement = async selector => {

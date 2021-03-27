@@ -2,7 +2,7 @@
 // @name         Better Grade View
 // @namespace    https://alanjyu.com
 // @homepageURL  https://github.com/alanjyu/better-quercus.js
-// @version      0.6.1
+// @version      1.1
 // @description  A better grade viewing experience
 // @author       Alan J. Yu
 // @match        http*://q.utoronto.ca/courses/*/grades
@@ -17,6 +17,7 @@
     var table_head = document.querySelector('#grades_summary > thead > tr');
     var table_body = document.querySelectorAll('tr.student_assignment');
 
+    // clear the repeating text on top on larger screens
     var styleSheet = document.createElement('style')
     styleSheet.innerHTML =
         '@media only screen and (min-width: 768px) { \
@@ -24,11 +25,14 @@
              #assignments{padding: 0;} \
              #content{position: relative;} \
              #print-grades-container{position: absolute; top: 54px; right: 24px;} \
-            .ic-Action-header__Primary{display: none;} \
-            .percentage{text-align: center !important;} \
+             .ic-Action-header__Primary{display: none;} \
+             .ic-app-course-menu{height: 100%;} \
+             nav[role="navigation"]{position: sticky; top: 40px;}\
+             .percentage{text-align: center !important;} \
          }';
     document.body.appendChild(styleSheet);
 
+    // creates a column showing percetages
     table_head.insertCell(5).outerHTML = '<th scope="col" class="percentage">%</th>'; // insert % column
     table_head.deleteCell(-1) // remove excess column
 
@@ -42,6 +46,7 @@
         if (isNaN(perc)){
             perc = '-';
         }
+
         el.insertCell(5).outerHTML = '<td class="percentage">' + perc + '</td>'; // insert percentage column
     });
 })();

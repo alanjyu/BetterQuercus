@@ -2,13 +2,13 @@
 // @name         Better Quiz View
 // @namespace    https://alanjyu.com
 // @homepageURL  https://github.com/alanjyu/better-quercus.js
-// @version      0.0.1
+// @version      1.0
 // @description  A better quiz taking experience.
 // @run-at       document-idle
 // @author       Alan J. Yu
 // @match        http*://q.utoronto.ca/courses/*/quizzes/*
-// @updateURL    https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quiz-view.user.js
-// @downloadURL  https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quiz-view.user.js
+// @updateURL    https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quiz.user.js
+// @downloadURL  https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quiz.user.js
 // @supportURL   https://github.com/alanjyu/better-quercus.js/issues
 // ==/UserScript==
 
