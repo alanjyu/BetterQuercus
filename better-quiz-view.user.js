@@ -7,8 +7,8 @@
 // @run-at       document-idle
 // @author       Alan J. Yu
 // @match        http*://q.utoronto.ca/courses/*/quizzes/*
-// @updateURL    https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quiz.user.js
-// @downloadURL  https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quiz.user.js
+// @updateURL    https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quiz-view.user.js
+// @downloadURL  https://raw.githubusercontent.com/alanjyu/better-quercus/main/better-quiz-view.user.js
 // @supportURL   https://github.com/alanjyu/better-quercus.js/issues
 // ==/UserScript==
 
