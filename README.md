@@ -3,24 +3,19 @@
 ## Installation
 
 - Install a javascript hosting extension for your browser (e.g., [Tampermonkey](https://www.tampermonkey.net/) or [Violetmonkey](https://violentmonkey.github.io/get-it/))
-- Choose the script you want to install then click "Raw"
+- Click [here](https://github.com/alanjyu/better-quercus.js/blob/main/better-quercus.user.js) and click "install".
 
 Note: If your school is also using the Canvas framework, this will likely work! Message me if you want your school's URL to be included. If this causes incompability, you can send a pull request or fork and maintain the project yourself.
 
-## Scripts
-
-- [better-quercus](https://github.com/alanjyu/better-quercus.js/blob/main/better-quercus.user.js)
-  - All features in one file
-  - Update priority
-
-- [better-doc-preview](https://github.com/alanjyu/better-quercus.js/blob/main/better-doc-preview.user.js)
+## Features
+- File preview
   - Maximize preview window
-  - Easier download access
+  - Easy download and navigation
 
-- [better-grade-view](https://github.com/alanjyu/better-quercus.js/blob/main/better-grade-view.user.js) 
-  - Display grades as percentages
+- Grades
+  - Display grades in percentages
 
-- [better-quiz-view](https://github.com/alanjyu/better-quercus.js/blob/main/better-quiz-view.user.js) 
+- Quizzes
   - Sticky quiz menu
   - Improved flags
 

@@ -2,7 +2,7 @@
 // @name         Better Quercus
 // @namespace    https://alanjyu.com
 // @homepageURL  https://github.com/alanjyu/better-quercus.js
-// @version      1.0.1
+// @version      1.0.2
 // @description  Provide you with a better Quercus experience.
 // @author       Alan J. Yu
 // @match        http*://q.utoronto.ca/*
@@ -14,6 +14,10 @@
 
 (function() {
     'use strict';
+
+    var grades = true;
+    var quizzes = true;
+    var file_preview = true;
 
     // check if element is loaded
     const checkElement = async selector => {
@@ -54,7 +58,7 @@
     });
 
     /* code for grades page */
-    if (/\/courses\/[0-9]+\/grades/.test (location.pathname)) {
+    if (grades && /\/courses\/[0-9]+\/grades/.test (location.pathname)) {
 
         let th = document.querySelector('#grades_summary > thead > tr'); // table head
         let tb = document.querySelectorAll('tr.student_assignment'); // table body
@@ -94,7 +98,7 @@
     }
 
     /* code for files preview page */
-    else if (/\/courses\/[0-9]+\/files\/[^\/]+/.test (location.pathname)) {
+    else if (file_preview && /\/courses\/[0-9]+\/files\/[^\/]+/.test (location.pathname)) {
 
         // maximize doc preview by moving the footer to the top
         let styleSheet = document.createElement('style')
@@ -139,7 +143,7 @@
 
 
     /* code for quizzes page */
-    else if (/\/courses\/[0-9]+\/quizzes\/[^\/]+/.test (location.pathname)) {
+    else if (quizzes && /\/courses\/[0-9]+\/quizzes\/[^\/]+/.test (location.pathname)) {
         let styleSheet = document.createElement('style')
         styleSheet.innerHTML =
             '#right-side{top: 56px; position: sticky;} \
