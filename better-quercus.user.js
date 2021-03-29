@@ -34,9 +34,8 @@
 
     // responsive sidebar
     function responsiveSidebar() {
-
         // check if left menu exists
-        if (document.querySelector('#not-left') != null) {
+        if (document.querySelector('#left-side') != null) {
             if (window.innerWidth < 1150) {
                 if (document.body.classList.contains('course-menu-expanded')) {
                     document.body.classList.remove('course-menu-expanded');
