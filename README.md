@@ -1,4 +1,4 @@
-# Better Quercus
+# Better Quercus Javascript
 
 ## Installation
 
