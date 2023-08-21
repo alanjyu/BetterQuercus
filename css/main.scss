@@ -116,8 +116,16 @@
 
     & > .fOyUs_bGBk {
         position: absolute;
+        top: 0;
+        right: 0;
         margin-top: -58px;
-        right: 12px;
+        margin-right: 24px;
+    }
+
+    .pinned-discussions-v2__wrapper {
+        margin-bottom: 24px;
+        border-radius: 10px;
+        overflow: hidden;
     }
 
     .ic-item-row__content-link {

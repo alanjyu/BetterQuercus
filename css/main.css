@@ -86,8 +86,15 @@
 /* grades */
 .announcements-v2__wrapper > .fOyUs_bGBk {
   position: absolute;
+  top: 0;
+  right: 0;
   margin-top: -58px;
-  right: 12px;
+  margin-right: 24px;
+}
+.announcements-v2__wrapper .pinned-discussions-v2__wrapper {
+  margin-bottom: 24px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .announcements-v2__wrapper .ic-item-row__content-link {
   margin-bottom: 6px;
