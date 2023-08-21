@@ -41,6 +41,7 @@
     }
 }
 
+
 // removes bottom border between header and main content
 .ic-app-nav-toggle-and-crumbs, .header-bar {
     border-bottom: none;
@@ -71,6 +72,7 @@
     margin-top: 200px;
 }
 
+
 /* file preview */
 // enlarge the file preview panel by moving the footer to top right
 .module-sequence-footer {
@@ -91,20 +93,86 @@
     padding: 0;
 }
 
-#breadcrumbs {
-    overflow: hidden;
-    max-width: 50%;
+.ic-app-crumbs {
+
+    #breadcrumbs {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+
+        .ellipsible {
+            max-width: none !important;
+            white-space: nowrap;
+        }
+    }
 }
 
 /* grades */
 .announcements-v2__wrapper {
-    // display 3 lines of preview of announcement content (default is 1)
-    .ic-announcement-row__content {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: pre-wrap;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
+
+    & > .fOyUs_bGBk {
+        position: absolute;
+        margin-top: -58px;
+        right: 12px;
+    }
+
+    .ic-item-row__content-link {
+        margin-bottom: 6px;
+    }
+
+    .ic-announcement-row {
+        box-shadow: none;
+        border: 1px solid #c7cdd1;
+        padding: 16px;
+        display: flex;
+        border-radius: 10px;
+        margin-bottom: 24px;
+
+        &__content {
+            // display 3 lines of preview of announcement content (default is 1)
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: pre-wrap;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+    }
+
+    .ic-section-tooltip {
+        background: #f5f5f5;
+        padding: 6px;
+        margin: 12px 0px;
+        border-radius: 10px;
+    }
+
+
+}
+
+/* main */
+.ic-DashboardCard__box {
+    padding-top: 0;
+    
+    .ic-DashboardCard__box__container {
+        margin: 0;
+        
+        .ic-DashboardCard {
+            width: 100%;
+            box-shadow: none;
+            border: 1px solid #c7cdd1;
+            border-radius: 10px;
+            overflow: hidden;
+            min-height: 400px;
+            max-width: 400px;
+
+            .ic-DashboardCard__header_hero {
+                height: 250px;
+                border: none;
+            }
+        }
     }
 }

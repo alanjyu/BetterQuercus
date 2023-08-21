@@ -69,12 +69,37 @@
   padding: 0;
 }
 
-#breadcrumbs {
+.ic-app-crumbs #breadcrumbs {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex-wrap: nowrap;
   overflow: hidden;
-  max-width: 50%;
+  width: 100%;
+  max-width: 100%;
+}
+.ic-app-crumbs #breadcrumbs .ellipsible {
+  max-width: none !important;
+  white-space: nowrap;
 }
 
 /* grades */
+.announcements-v2__wrapper > .fOyUs_bGBk {
+  position: absolute;
+  margin-top: -58px;
+  right: 12px;
+}
+.announcements-v2__wrapper .ic-item-row__content-link {
+  margin-bottom: 6px;
+}
+.announcements-v2__wrapper .ic-announcement-row {
+  box-shadow: none;
+  border: 1px solid #c7cdd1;
+  padding: 16px;
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
 .announcements-v2__wrapper .ic-announcement-row__content {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -82,4 +107,31 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+.announcements-v2__wrapper .ic-section-tooltip {
+  background: #f5f5f5;
+  padding: 6px;
+  margin: 12px 0px;
+  border-radius: 10px;
+}
+
+/* main */
+.ic-DashboardCard__box {
+  padding-top: 0;
+}
+.ic-DashboardCard__box .ic-DashboardCard__box__container {
+  margin: 0;
+}
+.ic-DashboardCard__box .ic-DashboardCard__box__container .ic-DashboardCard {
+  width: 100%;
+  box-shadow: none;
+  border: 1px solid #c7cdd1;
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 400px;
+  max-width: 400px;
+}
+.ic-DashboardCard__box .ic-DashboardCard__box__container .ic-DashboardCard .ic-DashboardCard__header_hero {
+  height: 250px;
+  border: none;
 }/*# sourceMappingURL=main.css.map */
