@@ -1,5 +1,7 @@
 # Better Quercus Javascript
 
+Please note that I am not a professional web developper by any means. Use at your own risk!
+
 ## Installation
 
 - Install a javascript hosting extension for your browser (e.g., [Tampermonkey](https://www.tampermonkey.net/) or [Violetmonkey](https://violentmonkey.github.io/get-it/))
@@ -9,15 +11,12 @@ Note: If your school is also using the Canvas framework, this will likely work! 
 
 ## Features
 - File preview
-  - Maximize preview window
+  - Maximized preview window
   - Easy download and navigation
 
-- Grades
-  - Display grades in percentages
-
 - Quizzes
-  - Sticky quiz menu
-  - Improved flags
+  - Sticky quiz progress on the right
+  - Improved visibility for flagged questions
 
 ## Planned features
 

@@ -1,31 +1,70 @@
 {
-    "manifest_version": 2,
-    "name": "Better Quercus",
-    "description": "A vastly improved Quercus experience.",
-    "version": "1.5",
-    "icons": {
-        "16": "icon.png",
-        "48": "icon.png",
-        "128": "icon.png"
-      },
-    "content_scripts":[
-        {
-          "matches":[
-            "https://q.utoronto.ca/*"
-          ],
-          "js": ["content.js"]
-        }
+  "manifest_version": 3,
+  "minimum_chrome_version": "88",
+  "name": "Better Quercus",
+  "description": "A vastly improved Quercus experience.",
+  "version": "1.0-alpha",
+  "default_locale": "en",
+  "offline_enabled": true,
+  
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [ 
+        "https://q.utoronto.ca/*"
       ],
-    "browser_action": {
-        "default_icon": "icon.png",
-        "default_popup": "popup.html"
-      },
-    
-      "background": {
-          "scripts": ["background.js"],
-          "persistent": false
-        },
-    "permissions": [
-        "activeTab"
+      "css": [ 
+        "/css/main.css"
+      ],
+      "js": [
+        "/js/content.js"
       ]
     }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    },
+    "default_title": "Better Quercus Chrome Extension"
+  },
+
+  "background": {
+    "service_worker": "/js/background.js",
+    "type": "module"
+  },
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "/css/main.css",
+        "/css/popup.css" 
+      ],
+      "matches": [ "https://q.utoronto.ca/*" ],
+      "run_at": "document_start"
+    }
+  ],
+
+  "permissions": [
+      "activeTab", 
+      "scripting", 
+      "storage"
+  ],
+
+  "host_permissions": [
+    "https://q.utoronto.ca/*"
+  ]
+}

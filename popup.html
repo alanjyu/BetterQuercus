@@ -1,5 +1,25 @@
-<html>
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+ 
+ <html>
+    <head>
+        <title>Popup - Better Quercus</title>
+        <link href="/css/popup.css" rel="stylesheet" type="text/css"/>
+        <script src="/js/popup.js"></script>
+    </head>
     <body>
-        <h1>Test</h1>
+        <figure>
+            <img class="icon" src="icon.png"></img>
+        </figure>
+
+        <div class="mode-buttons">
+            <button id="lightMode">Light</button>
+            <button id="darkMode">Dark</button>
+            <button id="systemMode">System</button>
+        </div>
     </body>
 </html>

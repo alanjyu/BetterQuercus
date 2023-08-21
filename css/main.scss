@@ -1,0 +1,110 @@
+// remove layout padding to save space\
+.ic-Layout-contentMain {
+
+    #assignments {
+        padding: 0;
+    }
+
+    // remove extra margin from the content
+    .context_module {
+        margin: 0;
+    }
+
+    // header bar typically consists of search input
+    .header-bar {
+        position: absolute;
+        top: -58px;
+        right: 32px;
+        padding-bottom: 0;
+    }
+
+    .item-group-condensed {
+        padding: 0;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #c7cdd1;
+
+        .ig-header, .ig-row, .content, .footer {
+            margin: 0;
+            border: none;
+        }
+
+        // remove padding from footer div, used to space between item groups
+        // instead, we will use margin in the parent element to create space
+        .footer {
+            padding: 0;
+        }
+        
+        &:not(:last-child) {
+            margin-bottom: 32px; // create space
+        }
+    }
+}
+
+// removes bottom border between header and main content
+.ic-app-nav-toggle-and-crumbs, .header-bar {
+    border-bottom: none;
+}
+
+// move select menu to the right
+#GradeSummarySelectMenuGroup {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    > div > span, > div > span > span {
+        display: flex;
+        flex-direction: column;
+    }
+
+    > div > span > span > span {
+        margin-bottom: 10px;
+    }
+    
+    .bDzpk_fncw {
+        align-items: center;
+    }
+}
+
+// move right side content down to provide space for select menu
+#right-side-wrapper {
+    margin-top: 200px;
+}
+
+/* file preview */
+// enlarge the file preview panel by moving the footer to top right
+.module-sequence-footer {
+    height: 38px;
+
+    .module-sequence-footer-content {
+        border: none !important;
+        animation: none !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+}
+
+#sequence_footer {
+    position: absolute;
+    top: -58px;
+    right: 32px;
+    padding: 0;
+}
+
+#breadcrumbs {
+    overflow: hidden;
+    max-width: 50%;
+}
+
+/* grades */
+.announcements-v2__wrapper {
+    // display 3 lines of preview of announcement content (default is 1)
+    .ic-announcement-row__content {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: pre-wrap;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+}

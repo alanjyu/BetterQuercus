@@ -1,0 +1,85 @@
+.ic-Layout-contentMain #assignments {
+  padding: 0;
+}
+.ic-Layout-contentMain .context_module {
+  margin: 0;
+}
+.ic-Layout-contentMain .header-bar {
+  position: absolute;
+  top: -58px;
+  right: 32px;
+  padding-bottom: 0;
+}
+.ic-Layout-contentMain .item-group-condensed {
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #c7cdd1;
+}
+.ic-Layout-contentMain .item-group-condensed .ig-header, .ic-Layout-contentMain .item-group-condensed .ig-row, .ic-Layout-contentMain .item-group-condensed .content, .ic-Layout-contentMain .item-group-condensed .footer {
+  margin: 0;
+  border: none;
+}
+.ic-Layout-contentMain .item-group-condensed .footer {
+  padding: 0;
+}
+.ic-Layout-contentMain .item-group-condensed:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.ic-app-nav-toggle-and-crumbs, .header-bar {
+  border-bottom: none;
+}
+
+#GradeSummarySelectMenuGroup {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#GradeSummarySelectMenuGroup > div > span, #GradeSummarySelectMenuGroup > div > span > span {
+  display: flex;
+  flex-direction: column;
+}
+#GradeSummarySelectMenuGroup > div > span > span > span {
+  margin-bottom: 10px;
+}
+#GradeSummarySelectMenuGroup .bDzpk_fncw {
+  align-items: center;
+}
+
+#right-side-wrapper {
+  margin-top: 200px;
+}
+
+/* file preview */
+.module-sequence-footer {
+  height: 38px;
+}
+.module-sequence-footer .module-sequence-footer-content {
+  border: none !important;
+  animation: none !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+#sequence_footer {
+  position: absolute;
+  top: -58px;
+  right: 32px;
+  padding: 0;
+}
+
+#breadcrumbs {
+  overflow: hidden;
+  max-width: 50%;
+}
+
+/* grades */
+.announcements-v2__wrapper .ic-announcement-row__content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}/*# sourceMappingURL=main.css.map */
