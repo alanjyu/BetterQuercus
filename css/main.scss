@@ -109,11 +109,16 @@ body {
     #breadcrumbs {
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
         flex-wrap: nowrap;
         overflow: hidden;
         width: 100%;
-        max-width: 100%;
+        max-width: none;
+        white-space: nowrap;
+
+        ul {
+            width: 100%;
+        }
 
         .ellipsible {
             max-width: none !important;
@@ -125,7 +130,7 @@ body {
 /* grades */
 .announcements-v2__wrapper {
 
-    & > .fOyUs_bGBk {
+    & > .fOyUs_bGBk:nth-of-type(2) {
         position: absolute;
         top: 0;
         right: 0;

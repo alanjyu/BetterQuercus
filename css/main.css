@@ -82,11 +82,15 @@ body {
 .ic-app-crumbs #breadcrumbs {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   flex-wrap: nowrap;
   overflow: hidden;
   width: 100%;
-  max-width: 100%;
+  max-width: none;
+  white-space: nowrap;
+}
+.ic-app-crumbs #breadcrumbs ul {
+  width: 100%;
 }
 .ic-app-crumbs #breadcrumbs .ellipsible {
   max-width: none !important;
@@ -94,7 +98,7 @@ body {
 }
 
 /* grades */
-.announcements-v2__wrapper > .fOyUs_bGBk {
+.announcements-v2__wrapper > .fOyUs_bGBk:nth-of-type(2) {
   position: absolute;
   top: 0;
   right: 0;
