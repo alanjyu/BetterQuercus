@@ -2,6 +2,7 @@
 :root {
     --background-color: #fff;
     --text-color: #000;
+    --border-color: #c7cdd1;
 }
 
 body {
@@ -9,9 +10,12 @@ body {
     color: var(--text-color);
 }
 
-// remove layout padding to save space\
+// remove layout padding to save space
 .ic-Layout-contentMain {
-
+    margin: 24px;
+    padding: 0 !important;
+    overflow: hidden;
+    
     #assignments {
         padding: 0;
     }
@@ -21,19 +25,11 @@ body {
         margin: 0;
     }
 
-    // header bar typically consists of search input
-    .header-bar {
-        position: absolute;
-        top: -58px;
-        right: 32px;
-        padding-bottom: 0;
-    }
-
     .item-group-condensed {
         padding: 0;
         border-radius: 10px;
         overflow: hidden;
-        border: 1px solid #c7cdd1;
+        border: 1px solid var(--border-color);
 
         .ig-header, .ig-row, .content, .footer {
             margin: 0;
@@ -47,11 +43,30 @@ body {
         }
         
         &:not(:last-child) {
-            margin-bottom: 32px; // create space
+            margin-bottom: 24px; // create space except for the last child
         }
     }
 }
 
+/* nav */
+// header bar typically consists of search input, moved to top right
+.header-bar {
+    position: absolute;
+    top: -58px;
+    right: 24px;
+    padding-bottom: 0;
+
+    &-outer-container {
+        min-height: 0 !important;
+    }
+}
+
+#sequence_footer {
+    position: absolute;
+    top: -58px;
+    right: 24px;
+    padding: 0 !important;
+}
 
 // removes bottom border between header and main content
 .ic-app-nav-toggle-and-crumbs, .header-bar {
@@ -97,13 +112,6 @@ body {
     }
 }
 
-#sequence_footer {
-    position: absolute;
-    top: -58px;
-    right: 32px;
-    padding: 0;
-}
-
 .ic-app-crumbs {
 
     #breadcrumbs {
@@ -130,12 +138,22 @@ body {
 /* grades */
 .announcements-v2__wrapper {
 
-    & > .fOyUs_bGBk:nth-of-type(2) {
+    // move the search bar to top right (terrible element name from server)
+    & > span.fOyUs_bGBk:nth-of-type(2) {
         position: absolute;
         top: 0;
         right: 0;
         margin-top: -58px;
         margin-right: 24px;
+
+        > span {
+            margin: 0 0 6px 0 !important;
+        }
+    }
+
+    // test
+    & > span.fOyUs_bGBk:nth-of-type(3) {
+        margin: 0 !important;
     }
 
     .pinned-discussions-v2__wrapper {
@@ -143,28 +161,26 @@ body {
         border-radius: 10px;
         overflow: hidden;
     }
-
-    .ic-item-row__content-link {
-        margin-bottom: 6px;
-    }
-
-    .ic-announcement-row {
+    .ic-item-row, .ic-announcement-row {
         box-shadow: none;
-        background: #fff;
-        border: 1px solid #c7cdd1;
         padding: 16px;
         display: flex;
-        border-radius: 10px;
         margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
 
         &__content {
             // display 3 lines of preview of announcement content (default is 1)
             overflow: hidden;
             text-overflow: ellipsis;
-            white-space: pre-wrap;
+            white-space: pre-wrap !important;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
+        }
+
+        &__content-link {
+            margin-bottom: 6px;
         }
     }
 
@@ -188,7 +204,7 @@ body {
         .ic-DashboardCard {
             width: 100%;
             box-shadow: none;
-            border: 1px solid #c7cdd1;
+            border: 1px solid var(--border-color);
             border-radius: 10px;
             overflow: hidden;
             min-height: 400px;
@@ -200,4 +216,26 @@ body {
             }
         }
     }
+}
+
+/* assignments */
+// shade assignment overview
+.student-assignment-overview {
+    border: none !important;
+    padding: 12px !important; 
+    background: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* discussion */
+// a quirky way to fix the border radius
+#discussion-managebar > .headerBar {
+    border-radius: 10px 10px 0 0; // top rounded
+    overflow: hidden;
+}
+
+#discussion-toolbar > .headerBar {
+    border-radius:  0 0 10px 10px; // bottom rounded
+    overflow: hidden;
 }

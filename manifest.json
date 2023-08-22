@@ -22,7 +22,8 @@
       ],
       "js": [
         "/js/content.js"
-      ]
+      ],
+      "world": "MAIN"
     }
   ],
 

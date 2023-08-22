@@ -6,13 +6,16 @@
 
     /* files preview page */
     if (file_preview && /\/courses\/[0-9]+\/files\/[^\/]+/.test (location.pathname)) {
+        // remove occasional overflow 
+        document.querySelector('body').style.overflow = "hidden";
+
         // remove header text
-        document.querySelectorAll('#content h2')[0].style.display = 'none';
+        document.querySelectorAll('#content h2')[0].remove();
 
         // turn download text into a button
         let downloadText = document.getElementById('content').getElementsByTagName('div')[0];
         downloadText.classList.add('Button');
-        downloadText.style.cssText = 'position: absolute; width: 150px; top: -54px; right: 211.26px;';
+        downloadText.style.cssText = 'position: absolute; width: 150px; top: -58px; right: 210px;';
         downloadText.querySelector('span').style.cssText = 'font-size: 1rem;';
         downloadText.querySelector('span > a').innerHTML = 'Download';
         downloadText.querySelector('span > a').style.cssText = 'color: #000; text-decoration: none;';
@@ -25,11 +28,6 @@
             downloadText.querySelector('span > a').click();
         });
 
-        // restyle doc preview window once loaded
-        checkElement('#doc_preview > div').then(el => {
-            el.style.overflow = 'hidden';
-            el.getElementsByTagName('iframe')[0].style.minHeight = '0';
-        });
     }
 
 

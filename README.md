@@ -18,6 +18,10 @@ Note: If your school is also using the Canvas framework, this will likely work! 
   - Sticky quiz progress on the right
   - Improved visibility for flagged questions
 
+## Limitations
+- Chromium browser only (so far)
+- injection method could result in an element 'restyled' after first render (mostly eliminated; though some elements were originally styled with an external css)
+
 ## Planned features
 
 - Time till due in submission page

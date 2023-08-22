@@ -1,6 +1,7 @@
 :root {
   --background-color: #fff;
   --text-color: #000;
+  --border-color: #c7cdd1;
 }
 
 body {
@@ -8,23 +9,22 @@ body {
   color: var(--text-color);
 }
 
+.ic-Layout-contentMain {
+  margin: 24px;
+  padding: 0 !important;
+  overflow: hidden;
+}
 .ic-Layout-contentMain #assignments {
   padding: 0;
 }
 .ic-Layout-contentMain .context_module {
   margin: 0;
 }
-.ic-Layout-contentMain .header-bar {
-  position: absolute;
-  top: -58px;
-  right: 32px;
-  padding-bottom: 0;
-}
 .ic-Layout-contentMain .item-group-condensed {
   padding: 0;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #c7cdd1;
+  border: 1px solid var(--border-color);
 }
 .ic-Layout-contentMain .item-group-condensed .ig-header, .ic-Layout-contentMain .item-group-condensed .ig-row, .ic-Layout-contentMain .item-group-condensed .content, .ic-Layout-contentMain .item-group-condensed .footer {
   margin: 0;
@@ -34,7 +34,25 @@ body {
   padding: 0;
 }
 .ic-Layout-contentMain .item-group-condensed:not(:last-child) {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+}
+
+/* nav */
+.header-bar {
+  position: absolute;
+  top: -58px;
+  right: 24px;
+  padding-bottom: 0;
+}
+.header-bar-outer-container {
+  min-height: 0 !important;
+}
+
+#sequence_footer {
+  position: absolute;
+  top: -58px;
+  right: 24px;
+  padding: 0 !important;
 }
 
 .ic-app-nav-toggle-and-crumbs, .header-bar {
@@ -72,13 +90,6 @@ body {
   padding: 0 !important;
 }
 
-#sequence_footer {
-  position: absolute;
-  top: -58px;
-  right: 32px;
-  padding: 0;
-}
-
 .ic-app-crumbs #breadcrumbs {
   display: flex;
   flex-direction: column;
@@ -98,37 +109,42 @@ body {
 }
 
 /* grades */
-.announcements-v2__wrapper > .fOyUs_bGBk:nth-of-type(2) {
+.announcements-v2__wrapper > span.fOyUs_bGBk:nth-of-type(2) {
   position: absolute;
   top: 0;
   right: 0;
   margin-top: -58px;
   margin-right: 24px;
 }
+.announcements-v2__wrapper > span.fOyUs_bGBk:nth-of-type(2) > span {
+  margin: 0 0 6px 0 !important;
+}
+.announcements-v2__wrapper > span.fOyUs_bGBk:nth-of-type(3) {
+  margin: 0 !important;
+}
 .announcements-v2__wrapper .pinned-discussions-v2__wrapper {
   margin-bottom: 24px;
   border-radius: 10px;
   overflow: hidden;
 }
-.announcements-v2__wrapper .ic-item-row__content-link {
-  margin-bottom: 6px;
-}
-.announcements-v2__wrapper .ic-announcement-row {
+.announcements-v2__wrapper .ic-item-row, .announcements-v2__wrapper .ic-announcement-row {
   box-shadow: none;
-  background: #fff;
-  border: 1px solid #c7cdd1;
   padding: 16px;
   display: flex;
-  border-radius: 10px;
   margin-bottom: 24px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
 }
-.announcements-v2__wrapper .ic-announcement-row__content {
+.announcements-v2__wrapper .ic-item-row__content, .announcements-v2__wrapper .ic-announcement-row__content {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: pre-wrap;
+  white-space: pre-wrap !important;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+.announcements-v2__wrapper .ic-item-row__content-link, .announcements-v2__wrapper .ic-announcement-row__content-link {
+  margin-bottom: 6px;
 }
 .announcements-v2__wrapper .ic-section-tooltip {
   background: #f5f5f5;
@@ -147,7 +163,7 @@ body {
 .ic-DashboardCard__box .ic-DashboardCard__box__container .ic-DashboardCard {
   width: 100%;
   box-shadow: none;
-  border: 1px solid #c7cdd1;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   overflow: hidden;
   min-height: 400px;
@@ -156,4 +172,24 @@ body {
 .ic-DashboardCard__box .ic-DashboardCard__box__container .ic-DashboardCard .ic-DashboardCard__header_hero {
   height: 250px;
   border: none;
+}
+
+/* assignments */
+.student-assignment-overview {
+  border: none !important;
+  padding: 12px !important;
+  background: #f5f5f5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* discussion */
+#discussion-managebar > .headerBar {
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+
+#discussion-toolbar > .headerBar {
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
 }/*# sourceMappingURL=main.css.map */
