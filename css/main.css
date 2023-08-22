@@ -1,3 +1,13 @@
+:root {
+  --background-color: #fff;
+  --text-color: #000;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
 .ic-Layout-contentMain #assignments {
   padding: 0;
 }
@@ -28,7 +38,7 @@
 }
 
 .ic-app-nav-toggle-and-crumbs, .header-bar {
-  border-bottom: none;
+  border-bottom: none !important;
 }
 
 #GradeSummarySelectMenuGroup {
@@ -101,6 +111,7 @@
 }
 .announcements-v2__wrapper .ic-announcement-row {
   box-shadow: none;
+  background: #fff;
   border: 1px solid #c7cdd1;
   padding: 16px;
   display: flex;

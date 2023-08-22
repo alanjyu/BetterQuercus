@@ -1,43 +1,13 @@
 // Copyright (C) 2023 Alan J. Yu
 
 (function() {
-    // inject main.css as soon as html is loaded
-    window.onload = function() {
-        var link = document.createElement('link');
-        link.href = chrome.runtime.getURL('/css/main.css');
-        link.type = 'text/css';
-        link.rel = 'stylesheet';
-        link.media = 'all';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    }
-
     var quizzes = true;
     var file_preview = true;
-
-    document.addEventListener('resize', (e) => {
-        responsiveSidebar();
-    });
-
-    // responsive sidebar
-    function responsiveSidebar() {
-        // check if left menu exists
-        if (document.querySelector('#left-side') != null) {
-            if (window.innerWidth < 1150) {
-                if (document.body.classList.contains('course-menu-expanded')) {
-                    document.body.classList.remove('course-menu-expanded');
-                }
-            } else {
-                if (!document.body.classList.contains('course-menu-expanded')) {
-                    document.body.classList.add('course-menu-expanded');
-                }
-            }
-        }
-    }
 
     /* files preview page */
     if (file_preview && /\/courses\/[0-9]+\/files\/[^\/]+/.test (location.pathname)) {
         // remove header text
-        document.getElementById('content').getElementsByTagName('h2')[0].style.display = 'none';
+        document.querySelectorAll('#content h2')[0].style.display = 'none';
 
         // turn download text into a button
         let downloadText = document.getElementById('content').getElementsByTagName('div')[0];
