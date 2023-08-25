@@ -1,21 +1,22 @@
 // Copyright (C) 2023 Alan J. Yu
 
 (function() {
+    console.log('Content script is running!');
+
     var quizzes = true;
     var file_preview = true;
 
-    /* files preview page */
     if (file_preview && /\/courses\/[0-9]+\/files\/[^\/]+/.test (location.pathname)) {
         // remove occasional overflow 
         document.querySelector('body').style.overflow = "hidden";
 
         // remove header text
-        document.querySelectorAll('#content h2')[0].remove();
+        // document.querySelectorAll('#content h2')[0].remove();
 
         // turn download text into a button
         let downloadText = document.getElementById('content').getElementsByTagName('div')[0];
         downloadText.classList.add('Button');
-        downloadText.style.cssText = 'position: absolute; width: 150px; top: -58px; right: 210px;';
+        downloadText.style.cssText = 'position: absolute; width: 150px; top: -54.5px; right: 210px;';
         downloadText.querySelector('span').style.cssText = 'font-size: 1rem;';
         downloadText.querySelector('span > a').innerHTML = 'Download';
         downloadText.querySelector('span > a').style.cssText = 'color: #000; text-decoration: none;';
@@ -30,8 +31,6 @@
 
     }
 
-
-    /* quizzes page */
     else if (quizzes && /\/courses\/[0-9]+\/quizzes\/[^\/]+/.test (location.pathname)) {
         let styleSheet = document.createElement('style')
         styleSheet.innerHTML =

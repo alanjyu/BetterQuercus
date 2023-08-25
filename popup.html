@@ -9,17 +9,23 @@
     <head>
         <title>Popup - Better Quercus</title>
         <link href="/css/popup.css" rel="stylesheet" type="text/css"/>
-        <script src="/js/popup.js" type="text/javascript"></script>
     </head>
     <body>
         <figure>
             <img class="icon" src="icon.png"></img>
         </figure>
 
+        <label class="switch">
+            <input type="checkbox" id="toggleSwitch">
+            <span class="slider"></span>
+          </label>
+
         <div class="mode-buttons">
             <button id="lightMode">Light</button>
             <button id="darkMode">Dark</button>
             <button id="systemMode">System</button>
         </div>
+
+        <script src="js/popup.js"></script>
     </body>
 </html>

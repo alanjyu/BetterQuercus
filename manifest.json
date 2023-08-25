@@ -3,7 +3,7 @@
   "minimum_chrome_version": "88",
   "name": "Better Quercus",
   "description": "A vastly improved Quercus experience.",
-  "version": "1.0",
+  "version": "1.1.0",
   "offline_enabled": true,
   
   "icons": {
@@ -12,20 +12,7 @@
     "128": "icon.png"
   },
 
-  "content_scripts": [
-    {
-      "matches": [ 
-        "https://q.utoronto.ca/*"
-      ],
-      "css": [ 
-        "/css/main.css"
-      ],
-      "js": [
-        "/js/content.js"
-      ],
-      "world": "MAIN"
-    }
-  ],
+  "content_scripts": [],
 
   "action": {
     "default_popup": "popup.html",
@@ -39,25 +26,13 @@
   },
 
   "background": {
-    "service_worker": "/js/background.js",
+    "service_worker": "js/background.js",
     "type": "module"
   },
 
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   },
-
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "/css/main.css",
-        "/css/popup.css" 
-      ],
-      "matches": [ "https://q.utoronto.ca/*" ],
-      "run_at": "document_start",
-      "world": "MAIN"
-    }
-  ],
 
   "permissions": [
       "activeTab", 
