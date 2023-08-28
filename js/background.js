@@ -1,59 +1,38 @@
-let globalEnabled = true; // Set the initial default state to true
+let extEnabled = false;
+let modeSelected = 'light';
+const activeTabs = new Set();
 
-function updateContentInjection(tabId, isEnabled) {
-  if (isEnabled) {
-    chrome.scripting.executeScript({
-      target: { tabId },
-      files: ['js/content.js']
-    });
+const contentScript = {
+    id: 'contentScript',
+    css: ['css/main.css'],
+    js: ['js/content.js'],
+    persistAcrossSessions: false,
+    allFrames: true,
+    matches: [ 'https://q.utoronto.ca/*' ],
+    runAt: "document_start",
+    world: "MAIN"
+  }
 
-    chrome.scripting.insertCSS({
-      target: { tabId },
-      files: ['css/main.css']
-    });
+function updateContent(extEnabled, modeSelected) {
+  if (extEnabled) {
+    chrome.scripting.registerContentScripts([contentScript]);
   } else {
-    chrome.scripting.removeCSS({
-      target: { tabId },
-      files: ['css/main.css']
-    });
+    chrome.scripting.unregisterContentScripts();
   }
 }
 
-function performInjectionIfNeeded() {
-  console.log('injecting!')
-  chrome.tabs.query({ url: "https://q.utoronto.ca/*" }, function(tabs) {
-    for (const tab of tabs) {
-      updateContentInjection(tab.id, globalEnabled);
-    }
-  });
-}
+chrome.storage.sync.get(['extEnabled', 'modeSelected'], function(result) {
+  extEnabled = result.extEnabled ?? extEnabled;
+  modeSelected = result.modeSelected ?? modeSelected;
+  updateContent(extEnabled, modeSelected);
+});
 
-chrome.storage.sync.get(['globalEnabled'], function(result) {
-  if (result.hasOwnProperty('globalEnabled')) {
-    globalEnabled = result.globalEnabled; // Use the stored value if available
+chrome.storage.onChanged.addListener(function(changes) {
+  if ('extEnabled' in changes) {
+    extEnabled = changes.extEnabled?.newValue ?? extEnabled;
+    updateContent(extEnabled, modeSelected);
+  } else if ('modeSelected' in changes) {
+    modeSelected = changes.modeSelected?.newValue ?? modeSelected;
+    updateContent(extEnabled, modeSelected);
   }
-
-  // Perform the initial injection
-  performInjectionIfNeeded();
-
-  // Listen to tab updates (including page refresh)
-  chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-    if (globalEnabled && changeInfo.status === 'complete') {
-      updateContentInjection(tabId, globalEnabled);
-    }
-  });
-
-  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.action === 'getGlobalEnabledState') {
-      console.log("Received getGlobalEnabledState message");
-      sendResponse({ globalEnabled });
-    } else if (message.action === 'toggleGlobalEnabledState') {
-      console.log("Received toggleGlobalEnabledState message");
-      globalEnabled = !globalEnabled;
-
-      performInjectionIfNeeded(); // Call the injection function based on the new state
-
-      sendResponse({ globalEnabled });
-    }
-  });
 });

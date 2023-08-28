@@ -12,18 +12,19 @@
     </head>
     <body>
         <figure>
-            <img class="icon" src="icon.png"></img>
+            <img class="ext-icon" src="icon.png"></img>
         </figure>
 
-        <label class="switch">
-            <input type="checkbox" id="toggleSwitch">
-            <span class="slider"></span>
-          </label>
-
+        <div class="ext-buttons">
+            <button id="ext-off">Off</button>
+            <button id="ext-on">On</button>
+        </div>
+        <p class="ext-status">Extension is enabled.</p>
+        <p class="mode-status">Theme</p>
         <div class="mode-buttons">
-            <button id="lightMode">Light</button>
-            <button id="darkMode">Dark</button>
-            <button id="systemMode">System</button>
+            <button id="mode-light">Light</button>
+            <button id="mode-dark">Dark</button>
+            <button id="mode-system">System</button>
         </div>
 
         <script src="js/popup.js"></script>

@@ -1,8 +1,16 @@
 // root parameters: set up this way for dynamic background and colour
-:root {
+:root, html[data-theme="light"] {
     --background-color: #fff;
-    --text-color: #000;
+    --text-color: #2d3b45;
     --border-color: #c7cdd1;
+    --accent-color: #002a5c;
+}
+
+html[data-theme="dark"] {
+    --background-color: #212121;
+    --text-color: #fff;
+    --border-color: #323232;
+    --accent-color: #00ddff;
 }
 
 body {
@@ -10,67 +18,88 @@ body {
     color: var(--text-color) !important;
 }
 
+a {
+    color: var(--accent-color) !important;
+
+    &:hover {
+        text-decoration: underline;
+        filter: brightness(80%);
+    }
+}
+
+.fLzZc_bGBk {
+    background: var(--background-color) !important;
+}
+
+.btn, .Button, .ui-button {
+    border: none !important;
+    border-radius: none;
+}
+
+.button-sidebar-wide {
+    margin: 0 !important;
+}
+
+.download-button {
+    position: absolute !important;
+    top: -54px !important;
+    right: 206px !important;
+    border-radius: 6px 0 0 6px !important;
+
+    a {
+        font-size: 1rem !important;
+        color: var(--text-color) !important;
+        text-decoration: none !important;
+    }
+}
+
+// dashboard 
+.hidden-phone {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.elMgC_bGBk.elMgC_eoMd, .elMgC_bGBk.elMgC_fdca {
+    height: 150px !important;
+    width: 150px !important;
+}
+
+.ic-Dashboard-header__layout {
+    border: none !important;
+}
+
 // remove layout padding to save space
 .ic-Layout-contentMain {
-    margin: 24px;
-    padding: 0 !important;
     overflow: hidden;
     
-    #assignments {
-        padding: 0;
-    }
-
-    // remove extra margin from the content
-    .context_module {
-        margin: 0;
-    }
-
     // disable default background
     .item-group-container {
         background: none !important;
     }
 
-    .item-group-condensed {
-        padding: 0;
-        border-radius: 10px;
-        overflow: hidden;
-        border: 1px solid var(--border-color);
+    .ig-list {
+        .item-group-condensed {
+            padding: 0 !important;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color) !important;
+            margin-bottom: 48px;
+    
+            .ig-header, .ig-row, .content, .footer {
+                margin: 0;
+                border: none;
+            }
+    
+            .footer {
+                display: none;
+            }
 
-        .ig-header, .ig-row, .content, .footer {
-            margin: 0;
-            border: none;
-        }
-
-        // remove padding from footer div, used to space between item groups
-        // instead, we will use margin in the parent element to create space
-        .footer {
-            padding: 0;
-        }
-        
-        &:not(:last-child) {
-            margin-bottom: 24px; // create space except for the last child
+            &.last {
+                border: 1px solid var(--border-color) !important;
+            }
         }
     }
-}
-
-/* nav */
-// header bar typically consists of search input, moved to top right
-.header-bar {
-    position: absolute;
-    top: -54.5px;
-    right: 24px;
-    padding-bottom: 0;
-
-    &-outer-container {
-        min-height: 0 !important;
-    }
-}
-
-#sequence_footer {
-    position: absolute;
-    top: -54.5px;
-    right: 24px;
-    padding: 0 !important;
+    
 }
 
 // removes bottom border between header and main content
@@ -78,12 +107,14 @@ body {
     border-bottom: none !important;
 }
 
-/* file preview */
 // enlarge the file preview panel by moving the footer to top right
 .module-sequence-footer {
-    height: 38px;
+    position: absolute !important;
+    left: auto !important;
+    top: -54px;
+    right: 24px !important;
 
-    .module-sequence-footer-content {
+    &-content {
         border: none !important;
         animation: none !important;
         background: none !important;
@@ -91,26 +122,39 @@ body {
     }
 }
 
-.ic-app-crumbs {
+.download-button {
+    position: absolute; 
+    width: 150px; 
+    top: -54.5px;
+    right: 210px;
+}
 
-    #breadcrumbs {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        flex-wrap: nowrap;
-        overflow: hidden;
+.top-right {
+    position: absolute;
+    top: -54.5px;
+    right: 24px;
+}
+
+
+#breadcrumbs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    width: 100%;
+    max-width: none;
+    white-space: nowrap;
+    background: none !important;
+    color: var(--text-color) !important;
+
+    ul {
         width: 100%;
-        max-width: none;
+    }
+
+    .ellipsible {
+        max-width: none !important;
         white-space: nowrap;
-
-        ul {
-            width: 100%;
-        }
-
-        .ellipsible {
-            max-width: none !important;
-            white-space: nowrap;
-        }
     }
 }
 
@@ -146,7 +190,7 @@ body {
         box-shadow: none;
         padding: 16px;
         display: flex;
-        margin-bottom: 24px;
+        margin-bottom: 48px !important;
         border-radius: 10px;
         border: 1px solid var(--border-color);
 
@@ -156,7 +200,7 @@ body {
             text-overflow: ellipsis;
             white-space: pre-wrap !important;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 5;
             -webkit-box-orient: vertical;
         }
 
@@ -173,28 +217,27 @@ body {
     }
 }
 
-.ic-DashboardCard__box {
-    padding-top: 0;
-    
-    .ic-DashboardCard__box__container {
-        margin: 0;
-        
-        .ic-DashboardCard {
-            box-shadow: none;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
 
-            .ic-DashboardCard__header_hero {
-                min-height: 300px;
-                min-height: 250px;
-                border: none;
-            }
-        }
+.ic-DashboardCard {
+    box-shadow: none !important;
+    border: 1px solid var(--border-color);
+    border-radius: 10px !important;
+    overflow: hidden !important;
+
+    &__container {
+        margin: 0 !important;
+    }
+    
+    &__header_hero {
+        min-height: 200px;
+        border: none;
+    }
+
+    &__header-button-bg {
+        border-radius: 6px !important;
     }
 }
 
-/* assignments */
 // shade assignment overview
 #quiz_student_details, .student-assignment-overview {
     border-top: none !important;
@@ -205,7 +248,6 @@ body {
     width: auto !important;
 }
 
-/* discussion */
 // a quirky way to fix the border radius
 #discussion-managebar > .headerBar {
     border-radius: 10px 10px 0 0; // top rounded
@@ -217,7 +259,6 @@ body {
     overflow: hidden;
 }
 
-/* quiz */
 // style question prompts
 .question {
     border-radius: 10px;
@@ -229,6 +270,17 @@ body {
     }
 }
 
-#immersive_reader_mount_point {
-    margin-right: 174px;
+// discussion
+.discussion-entries .discussion_entry {
+    padding: 12px 24px !important;
+}
+
+.discussion-entries .entry {
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 12px 0 48px 24px !important;
+}
+
+.discussion-entries .entry .entry {
+    border-top: none !important;
 }

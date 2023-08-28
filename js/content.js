@@ -1,25 +1,25 @@
-// Copyright (C) 2023 Alan J. Yu
+document.addEventListener('DOMContentLoaded', () => {
+    let quizEnabled = true;
 
-(function() {
-    console.log('Content script is running!');
+    let filePreviewEnabled = true;
+    let filePreviewURL = new RegExp('^/courses/\\d+/files/\\d+(\\S*)$');
 
-    var quizzes = true;
-    var file_preview = true;
+    let modulesEnabled = true;
+    let modulesURL = new RegExp('^/courses/\\d+/modules$');
 
-    if (file_preview && /\/courses\/[0-9]+\/files\/[^\/]+/.test (location.pathname)) {
-        // remove occasional overflow 
-        document.querySelector('body').style.overflow = "hidden";
-
-        // remove header text
-        // document.querySelectorAll('#content h2')[0].remove();
-
+    if (filePreviewEnabled && filePreviewURL.test(location.pathname)) {
         // turn download text into a button
-        let downloadText = document.getElementById('content').getElementsByTagName('div')[0];
-        downloadText.classList.add('Button');
-        downloadText.style.cssText = 'position: absolute; width: 150px; top: -54.5px; right: 210px;';
-        downloadText.querySelector('span').style.cssText = 'font-size: 1rem;';
+        document.body.style.overflow = 'hidden';
+
+        let fileTitle = document.querySelector('#content h2');
+        fileTitle.style.display = 'none';
+
+        let mainFrame = document.querySelector('.ic-Layout-contentMain');
+        mainFrame.style.padding = '0 24px';
+
+        let downloadText = document.querySelector('#content > div');
+        downloadText.classList.add('Button', 'download-button');
         downloadText.querySelector('span > a').innerHTML = 'Download';
-        downloadText.querySelector('span > a').style.cssText = 'color: #000; text-decoration: none;';
 
         // trigger the inner 'a' (download) event once the button is clicked anywhere
         downloadText.addEventListener('click', evt => {
@@ -31,7 +31,7 @@
 
     }
 
-    else if (quizzes && /\/courses\/[0-9]+\/quizzes\/[^\/]+/.test (location.pathname)) {
+    else if (quizEnabled && /\/courses\/[0-9]+\/quizzes\/[^\/]+/.test(location.pathname)) {
         let styleSheet = document.createElement('style')
         styleSheet.innerHTML =
             '#right-side{top: 56px; position: sticky;} \
@@ -40,4 +40,9 @@
              .question.marked > .header{background: red; color: white;}';
         document.body.appendChild(styleSheet);
     }
-})();
+    
+    else if (modulesEnabled && modulesURL.test(location.pathname)) {
+        let headerBar = document.querySelector('.header-bar');
+        headerBar.classList.add('top-right');
+    }
+});
