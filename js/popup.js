@@ -10,20 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const modeDarkButton = document.getElementById('mode-dark');
   const modeSystemButton = document.getElementById('mode-system');
   const modeStatus = document.querySelector('.mode-status');
-  const popupBody = document.getElementsByTagName('body')[0];
 
-  // Initialize the variables
-  let extEnabled = false;
+  // initialize the variables
+  let extEnabled = true;
   let modeSelected = 'light';
 
   // Load the initial values from storage
   chrome.storage.sync.get(['extEnabled', 'modeSelected'], function(result) {
-    extEnabled = result.extEnabled ?? false;
-    modeSelected = result.modeSelected ?? 'light';
+    extEnabled = result.extEnabled ?? extEnabled;
+    modeSelected = result.modeSelected ?? modeSelected;
     updateExtUI(extEnabled, modeSelected);
   });
 
-  // Add the chrome.storage.onChanged listener
   chrome.storage.onChanged.addListener(function(changes, namespace) {
     if (namespace === 'sync') {
       if ('extEnabled' in changes) {
@@ -82,15 +80,25 @@ document.addEventListener('DOMContentLoaded', function() {
       modeSystemButton.classList.add('mode-active');
       modeStatus.textContent = 'Theme';
 
-      console.log(window.matchMedia("(prefers-color-scheme: dark)").matches);
       // darken popup based on system color scheme
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.setAttribute('data-theme', 'dark');
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
       }
     }
   }
+
+  // updates popup when system changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (extEnabled && modeSelected === 'system') {
+      if (e.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    }
+  });
 
   // button click event handlers
   extOffButton.addEventListener('click', function() {
@@ -111,16 +119,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
   modeSystemButton.addEventListener('click', function() {
     chrome.storage.sync.set({ modeSelected: 'system' });
-  });
-
-  // updates popup when system changes
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (extEnabled && modeSelected === 'system') {
-      if (e.matches) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    }
   });
 });

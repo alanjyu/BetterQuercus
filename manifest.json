@@ -3,7 +3,7 @@
   "minimum_chrome_version": "88",
   "name": "Better Quercus",
   "description": "A vastly improved Quercus experience.",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "offline_enabled": true,
   
   "icons": {
@@ -11,8 +11,6 @@
     "48": "icon.png",
     "128": "icon.png"
   },
-
-  "content_scripts": [ ],
 
   "action": {
     "default_popup": "popup.html",

@@ -1,0 +1,294 @@
+// root parameters: set up this way for dynamic background and colour
+:root, html[data-theme="light"] {
+    --background-color: #ffffff;
+    --text-color: #2d3b45;
+    --border-color: #c7cdd1;
+    --button-color: #f5f5f5;
+    --accent-color: #003451;
+    --link-color: #05345d;
+}
+
+html[data-theme="dark"] {
+    --background-color: #212121;
+    --text-color: #ffffff;
+    --border-color: #323232;
+    --button-color: #2c2c2c;
+    --accent-color: #142f54;
+    --link-color: #a6d7f2;
+}
+
+body {
+    background: var(--background-color) !important;
+    color: var(--text-color) !important;
+}
+
+// a proper fix to links
+a:not(.user_content a){
+    color: var(--link-color) !important;
+    text-decoration: none !important;
+}
+
+.fLzZc_bGBk {
+    background: var(--background-color) !important;
+}
+
+.btn, .Button, .ui-button {
+    border: none !important;
+    border-radius: none;
+}
+
+.button-sidebar-wide {
+    margin: 0 !important;
+}
+
+.event {
+    background: var(--background-color);
+}
+
+.download-button {
+    position: absolute !important;
+    top: -54px !important;
+    right: 206px !important;
+    border-radius: 6px 0 0 6px !important;
+
+    a {
+        font-size: 1rem !important;
+        color: var(--text-color) !important;
+        text-decoration: none !important;
+    }
+}
+
+// dashboard 
+.hidden-phone {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+// left panel profile picture
+.elMgC_bGBk.elMgC_eoMd, .elMgC_bGBk.elMgC_fdca {
+    height: 150px !important;
+    width: 150px !important;
+}
+
+.ic-Dashboard-header__layout {
+    border: none !important;
+}
+
+// remove layout padding to save space
+.ic-Layout-contentMain {
+    overflow: hidden;   
+}
+
+// disable default background
+.item-group-container {
+    background: none !important;
+}
+
+.ig-list {
+    .item-group-condensed {
+        padding: 0 !important;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border-color) !important;
+        margin-bottom: 48px;
+
+        .ig-header, .ig-row, .content, .footer {
+            margin: 0;
+            border: none;
+        }
+
+        .footer {
+            display: none;
+        }
+
+        &.last {
+            border: 1px solid var(--border-color) !important;
+        }
+    }
+}
+
+// removes bottom border between header and main content
+.ic-app-nav-toggle-and-crumbs, .header-bar {
+    border-bottom: none !important;
+}
+
+// enlarge the file preview panel by moving the footer to top right
+.module-sequence-footer {
+    position: absolute !important;
+    left: auto !important;
+    top: -54px;
+    right: 24px !important;
+
+    &-content {
+        border: none !important;
+        animation: none !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+}
+
+.download-button {
+    position: absolute; 
+    width: 150px; 
+    top: -54.5px;
+    right: 210px;
+}
+
+.top-right {
+    position: absolute;
+    top: -54.5px;
+    right: 24px;
+}
+
+
+#breadcrumbs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    width: 100%;
+    max-width: none;
+    white-space: nowrap;
+    background: none !important;
+    color: var(--text-color) !important;
+
+    ul {
+        width: 100%;
+    }
+
+    .ellipsible {
+        max-width: none !important;
+        white-space: nowrap;
+    }
+}
+
+
+// move course and sort select menu to top right
+#GradeSummarySelectMenuGroup {
+    position: absolute;
+    top: -54.5px;
+    right: 24px;
+}
+
+.announcements-v2__wrapper, .discussions-v2__wrapper {
+
+    // move the search bar to top right (terrible element name from server)
+    & > .fOyUs_bGBk:nth-of-type(2) {
+        position: absolute;
+        top: -54.5px;
+        right: 24px;
+
+        > span {
+            margin: 0 0 6px 0 !important;
+        }
+    }
+
+    .pinned-discussions-v2__wrapper, .unpinned-discussions-v2__wrapper, .closed-for-comments-discussions-v2__wrapper {
+        margin-bottom: 24px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: none !important;
+    }
+
+    .ic-item-row, .ic-announcement-row {
+        box-shadow: none;
+        padding: 16px;
+        display: flex;
+        margin-bottom: 48px !important;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+
+        &__content {
+            // display 3 lines of preview of announcement content (default is 1)
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: pre-wrap !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+        }
+
+        &__content-link {
+            margin-bottom: 6px;
+        }
+    }
+    .ic-section-tooltip {
+        background: #f5f5f5;
+        padding: 6px;
+        margin: 12px 0px;
+        border-radius: 10px;
+    }
+}
+
+
+.ic-DashboardCard {
+    box-shadow: none !important;
+    border: 1px solid var(--border-color);
+    border-radius: 10px !important;
+    overflow: hidden !important;
+
+    &__container {
+        margin: 0 !important;
+    }
+    
+    &__header_hero {
+        min-height: 200px;
+        border: none;
+    }
+
+    &__header-button-bg {
+        border-radius: 6px !important;
+    }
+}
+
+// shade assignment overview
+#quiz_student_details, .student-assignment-overview {
+    border-top: none !important;
+    border-bottom: none !important;
+    padding: 12px !important;
+    background: #f5f5f5;
+    border-radius: 10px;
+    width: auto !important;
+}
+
+// a quirky way to fix the border radius
+#discussion-managebar > .headerBar {
+    border-radius: 10px 10px 0 0; // top rounded
+    overflow: hidden;
+}
+
+#discussion-toolbar > .headerBar {
+    border-radius:  0 0 10px 10px; // bottom rounded
+    overflow: hidden;
+}
+
+// style question prompts
+.question {
+    border-radius: 10px;
+
+    // yet another quirky way to implement border radius
+    // overflow hidden will hide marked questions
+    > .header {
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+// discussion
+.discussion-entries .discussion_entry {
+    padding: 12px 24px !important;
+}
+
+.discussion-entries .entry {
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 12px 0 48px 24px !important;
+}
+
+.discussion-entries .entry .entry {
+    border-top: none !important;
+}
+
+.ef-header {
+    padding: 0 !important;
+}

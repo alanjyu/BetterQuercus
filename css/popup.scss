@@ -1,4 +1,5 @@
-:root[data-theme="light"] {
+// root parameters: set up this way for dynamic background and colour
+:root, html[data-theme="light"] {
   --background-color: #ffffff;
   --text-color: #2d3b45;
   --border-color: #c7cdd1;
@@ -6,7 +7,7 @@
   --accent-color: #d2efff;
 }
 
-:root[data-theme="dark"] {
+html[data-theme="dark"] {
   --background-color: #212121;
   --text-color: #ffffff;
   --border-color: #323232;
@@ -14,15 +15,7 @@
   --accent-color: #142f54;
 }
 
-@font-face {
-  font-family: 'Roboto';
-  src: url('fonts/roboto.woff2') format('woff2'),
-       url('fonts/roboto.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-body {
+html body {
   padding: 30px;
   height: auto;
   min-width: 250px;

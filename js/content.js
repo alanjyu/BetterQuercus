@@ -1,23 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let quizEnabled = true;
+    let extEnabled = false;
+    let modeSelected = 'light';
 
-    let filePreviewEnabled = true;
     let filePreviewURL = new RegExp('^/courses/\\d+/files/\\d+(\\S*)$');
-
-    let modulesEnabled = true;
     let modulesURL = new RegExp('^/courses/\\d+/modules$');
 
-    if (filePreviewEnabled && filePreviewURL.test(location.pathname)) {
+    if (filePreviewURL.test(location.pathname)) {
         // turn download text into a button
         document.body.style.overflow = 'hidden';
 
-        let fileTitle = document.querySelector('#content h2');
+        const fileTitle = document.querySelector('#content h2');
         fileTitle.style.display = 'none';
 
-        let mainFrame = document.querySelector('.ic-Layout-contentMain');
+        const mainFrame = document.querySelector('.ic-Layout-contentMain');
         mainFrame.style.padding = '0 24px';
 
-        let downloadText = document.querySelector('#content > div');
+        const downloadText = document.querySelector('#content > div');
         downloadText.classList.add('Button', 'download-button');
         downloadText.querySelector('span > a').innerHTML = 'Download';
 
@@ -31,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    else if (quizEnabled && /\/courses\/[0-9]+\/quizzes\/[^\/]+/.test(location.pathname)) {
+    else if (/\/courses\/[0-9]+\/quizzes\/[^\/]+/.test(location.pathname)) {
         let styleSheet = document.createElement('style')
         styleSheet.innerHTML =
             '#right-side{top: 56px; position: sticky;} \
@@ -41,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(styleSheet);
     }
     
-    else if (modulesEnabled && modulesURL.test(location.pathname)) {
+    else if (modulesURL.test(location.pathname)) {
         let headerBar = document.querySelector('.header-bar');
         headerBar.classList.add('top-right');
     }

@@ -1,38 +1,72 @@
 let extEnabled = false;
 let modeSelected = 'light';
+let systemIsDark = window.matchMedia('(prefers-color-scheme: dark)');
 const activeTabs = new Set();
 
-const contentScript = {
-    id: 'contentScript',
-    css: ['css/main.css'],
+let contentScript = {
+    id: 'inject_content',
+    css: ['css/static.css'],
     js: ['js/content.js'],
-    persistAcrossSessions: false,
-    allFrames: true,
     matches: [ 'https://q.utoronto.ca/*' ],
+    allFrames: true,
+    persistAcrossSessions: false,
     runAt: "document_start",
     world: "MAIN"
   }
 
-function updateContent(extEnabled, modeSelected) {
+async function updateContentScripts(extEnabled, modeSelected) {
   if (extEnabled) {
-    chrome.scripting.registerContentScripts([contentScript]);
+    await chrome.scripting.registerContentScripts([contentScript]);
   } else {
-    chrome.scripting.unregisterContentScripts();
+    await chrome.scripting.unregisterContentScripts();
+  }
+}
+
+async function injectContentScript(tabId, extEnabled, modeSelected) {
+  if (extEnabled) {
+      await chrome.scripting.executeScript({
+        target: { tabId: tabId },
+        function: () => {
+
+        },
+      });
+    } else if (modeSelected === 'dark') {
+      await chrome.scripting.executeScript({
+        target: { tabId: tabId },
+        function: () => {
+        },
+      });
+    }
   }
 }
 
 chrome.storage.sync.get(['extEnabled', 'modeSelected'], function(result) {
   extEnabled = result.extEnabled ?? extEnabled;
   modeSelected = result.modeSelected ?? modeSelected;
-  updateContent(extEnabled, modeSelected);
+  updateContentScripts(extEnabled, modeSelected);
 });
 
 chrome.storage.onChanged.addListener(function(changes) {
   if ('extEnabled' in changes) {
-    extEnabled = changes.extEnabled?.newValue ?? extEnabled;
-    updateContent(extEnabled, modeSelected);
-  } else if ('modeSelected' in changes) {
-    modeSelected = changes.modeSelected?.newValue ?? modeSelected;
-    updateContent(extEnabled, modeSelected);
+    extEnabled = changes.extEnabled.newValue;
+    updateContentScripts(extEnabled, modeSelected);
+  }
+
+  if (extEnabled && 'modeSelected' in changes) {
+    modeSelected = changes.modeSelected.newValue;
+    updateContentScripts(extEnabled, modeSelected);
+  }
+});
+
+
+chrome.tabs.onCreated.addListener(function(tab) {
+  if (tab.url && tab.url.startsWith('https://q.utoronto.ca/')) {
+    activeTabs.add(tab.id);
+  }
+});
+
+chrome.tabs.onRemoved.addListener(function(tabId) {
+  if (activeTabs.has(tabId)) {
+    activeTabs.delete(tabId);
   }
 });
