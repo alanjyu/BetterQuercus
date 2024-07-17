@@ -23,6 +23,7 @@ Note: If your school is also using the Canvas framework, this will likely work! 
 ## Planned features
 
 - Time till due in submission page
+- Make 'disable' button work. LOL!
 - Dark mode
 
 
