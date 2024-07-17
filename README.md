@@ -1,6 +1,6 @@
 # Better Quercus Chrome Extension
 
-Please note that I am not a professional web developper by any means. Use at your own risk! To access the legacy userscript (which still works!), click [here](https://github.com/alanjyu/BetterQuercus/tree/userscript).
+I am not a professional web developper by any means. Use at your own risk! To access the legacy userscript (which still works!), click [here](https://github.com/alanjyu/BetterQuercus/tree/userscript).
 
 Note: If your school is also using the Canvas framework, this will likely work! Message me if you want your school's URL to be included. If this causes incompability, you can send a pull request or fork and maintain the project yourself.
 
@@ -17,7 +17,7 @@ Note: If your school is also using the Canvas framework, this will likely work! 
 ## Limitations
 
 - Chromium browser only (so far)
-- injection method could result in an element 'restyled' after first render (mostly eliminated; though some elements were originally styled with an external css)
+- Injection method could result in an element 're-styled' after first render (mostly eliminated). this is due to some elements were originally styled by an external css)
 
 
 ## Planned features
