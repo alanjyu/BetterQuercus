@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "minimum_chrome_version": "88",
+  "name": "Better Quercus",
+  "description": "A vastly improved Quercus experience.",
+  "version": "1.2.0",
+  "offline_enabled": true,
+  
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    },
+    "default_title": "Better Quercus Chrome Extension"
+  },
+
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://q.utoronto.ca/*"],
+      "js": ["js/content.js"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'unsafe-eval';"
+  },
+
+  "permissions": [
+      "scripting", 
+      "storage",
+      "activeTab"
+  ],
+
+  "host_permissions": [
+    "http://q.utoronto.ca/*",
+    "https://q.utoronto.ca/*"
+  ]
+}

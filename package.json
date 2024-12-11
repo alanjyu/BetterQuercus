@@ -1,0 +1,31 @@
+{
+  "name": "Better Quercus",
+  "author": "Alan J. Yu",
+  "version": "1.0.0",
+  "description": "An improved Quercus experience",
+  "homepage": "https://github.com/alanjyu/betterquercus",
+  "targets": {
+    "build": {
+      "source": [
+        "src/manifest.json"
+      ],
+      "distDir": "dist/"
+    }
+  },
+  "scripts": {
+    "dev": "parcel watch --host localhost",
+    "build": "parcel build"
+  },
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "src/js/background.js"
+    ]
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/config-webextension": "^2.13.2",
+    "@parcel/transformer-sass": "^2.13.2",
+    "parcel": "^2.13.2"
+  }
+}

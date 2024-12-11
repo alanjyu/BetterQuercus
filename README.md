@@ -17,7 +17,7 @@ Note: If your school is also using the Canvas framework, this will likely work! 
 ## Limitations
 
 - Chromium browser only (so far)
-- Injection method could result in an element 're-styled' after first render (mostly eliminated). this is due to some elements were originally styled by an external css)
+- Injection method could result in an element 're-styled' after first render (mostly eliminated). this is due to some elements were originally styled by an external css.
 
 
 ## Planned features

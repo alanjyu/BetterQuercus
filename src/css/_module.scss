@@ -1,0 +1,43 @@
+@use 'theme' as *;
+
+// disable default background
+#context_modules_sortable_container {
+  background: none;
+  padding: 0;
+  margin-bottom: 48px;
+  border-radius: $br;
+  overflow: hidden;
+
+  .ig-header {
+    background: var(--button-color);
+    margin: 0;
+    border: 1px solid var(--shadow-color);
+    border-radius: $br $br 0 0;
+  }
+
+  .collapsed_module {
+    .ig-header {
+      background: var(--button-color);
+      margin: 0;
+      border: 1px solid var(--shadow-color);
+      border-radius: $br $br;
+    }
+  }
+
+  .ig-list {
+    // trace out the border in each child element
+    li, .ig-row {
+      border-top: 0;
+      border-right: 1px solid var(--shadow-color);
+      border-bottom: 0;
+      border-left: 0;
+    }
+
+    // round the bottom row of each module
+    li:last-of-type > .ig-row {
+      border-bottom: 1px solid var(--shadow-color) !important;
+      border-radius: 0 0 $br $br;
+      overflow: hidden;
+    }
+  }
+}

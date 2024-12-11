@@ -1,0 +1,35 @@
+@use 'lib' as *;
+@use 'theme' as *;
+
+.announcements-v2__wrapper {
+  .css-1qprmw-view {
+    margin: 0 !important;
+    display: block;
+    background: var(--foreground-color);
+    border-radius: $br;
+    @extend .boxshadow;
+  }
+
+  .ic-item-row:nth-of-type(1), .ic-item-row:nth-last-of-type(1) {
+    box-shadow: none;
+  }
+
+  .ic-announcement-row {
+    padding: 20px;
+    
+    &__content {
+      // display 3 lines of preview of announcement content (default is 1)
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: pre-wrap !important;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+    }
+
+    .ic-item-row__author-col > span {
+      height: 75px;
+      width: 75px;
+    }
+  }
+}

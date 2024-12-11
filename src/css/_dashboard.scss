@@ -1,0 +1,158 @@
+@use 'lib' as *;
+@use 'theme' as *;
+
+
+// remove layout padding to save space
+#content.ic-Layout-contentMain {
+  padding: 36px 30px 48px 48px;
+  overflow: hidden;   
+}
+
+
+// announcement notification on top of the dashboard
+#announcementWrapper {
+ > .ic-notification {
+  overflow: hidden;
+  border-radius: $br;
+
+  > .notification_account_content {
+    background: var(--foreground-color);
+  }
+ }
+
+ .css-pkzi3c-view-alert {
+  border-radius: $br;
+ }
+}
+
+
+// 'Dashboard' text
+#dashboard_header_container {
+  position: relative;
+  z-index: 0;
+
+  > div {
+    background: transparent;
+    border: 0;
+    font-size: $font-huge;
+  }
+}
+
+#DashboardCard_Container {
+  background: var(--foreground-color);
+  border-radius: $br;
+
+  .ic-DashboardCard__box__header {
+    background: transparent;
+    border: 0;
+    font-size: $font-large;
+  }
+
+    // course items
+  .ic-DashboardCard {
+    border-radius: $br;
+
+    &__container {
+      margin: 0;
+    }
+    
+    &__header_hero {
+      min-height: 200px;
+      border: none;
+    }
+
+    &__header-button-bg {
+      border-radius: 6px;
+    }
+  }
+}
+
+
+// right side elements
+#right-side-wrapper {
+  // align the padding with Dashboard
+  padding: 30px 24px 0 0;
+}
+
+#right-side {
+  > .ic-sidebar-logo {
+    display: none;
+  }
+  .disable_item_link, .disable-todo-item-link {
+    padding: 0 15px 0 0 !important;
+  }
+
+  h2, .h2, .todo-list-header {
+    font-size: $font-large !important;
+    border: 0 !important;
+  }
+
+  // to-do list
+  > ul.to-do-list {
+    @extend .boxshadow;
+    background: var(--foreground-color);
+    display: flex;
+    flex-direction: column;
+    border-radius: $br;
+    overflow: hidden;
+
+    > li.todo {
+      width: 100%;
+      transition: background .2s ease;
+
+      a {
+        padding: 10px;
+
+        .todo-details::after {
+          background: transparent;
+        }
+      }
+
+      &:hover {
+        background: var(--highlight-color);
+      }
+    }
+  }
+
+  // event list
+  ul.events {
+    @extend .boxshadow;
+    display: flex;
+    flex-direction: column;
+    border-radius: $br;
+    background: var(--foreground-color);
+    overflow: hidden;
+
+    > li {
+      width: 100%;
+
+      a {
+        transition: background .2s ease;
+
+        &:hover {
+          background: var(--highlight-color);
+        }
+      }
+
+      a, small {
+        padding: 10px;
+
+        .event-details::after {
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  // view grades button
+  .button-sidebar-wide {
+    background: var(--button-color);
+    text-align: center !important;
+  }
+}
+
+
+// remove the useless footer
+#footer {
+  display: none;
+}

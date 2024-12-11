@@ -1,0 +1,13 @@
+@use 'theme' as *;
+
+.boxshadow {
+  box-shadow: 0 0 2px var(--shadow-color);
+}
+
+.hover-highlight {
+  transition: background .2s;
+
+  &:hover {
+    background: var(--highlight-color);
+  }
+}

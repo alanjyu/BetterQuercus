@@ -1,0 +1,99 @@
+@use 'lib' as *;
+@use 'theme' as *;
+
+.discussions-v2__wrapper {
+  & > .fOyUs_bGBk:nth-of-type(2) {
+    position: absolute;
+    top: -54.5px;
+    right: 24px;
+
+    > span {
+      margin: 0 0 6px 0 !important;
+    }
+  }
+
+  .pinned-discussions-v2__wrapper, .unpinned-discussions-v2__wrapper, .closed-for-comments-discussions-v2__wrapper {
+    @extend .boxshadow;
+    border-radius: $br;
+    margin-bottom: 48px;
+  }
+
+  .ic-item-row, .ic-announcement-row {
+    display: flex;
+
+    &__content {
+      // display 3 lines of preview of announcement content (default is 1)
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: pre-wrap !important;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+    }
+
+    &__content-link {
+      margin-bottom: 6px;
+    }
+  }
+
+  .ic-section-tooltip {
+    padding: 6px;
+    margin: 12px 0px;
+    border-radius: 10px;
+  }
+
+
+  // discussion settings button on the top right
+  .css-1rpus1y-baseButton__content {
+    border-radius: $br;
+    background: var(--foreground-color);
+  }
+}
+
+
+// discussion thread
+.discussion-redesign-layout {
+  .css-sg1rn7-view {
+    background: none;
+  }
+
+  .css-1vqfmz1-view {
+    border-radius: $br !important;
+    background: var(--foreground-color);
+  }
+
+  // 'Sort', 'View Split Screen', and 'Expand Threads' buttons
+  .css-1rpus1y-baseButton__content {
+    border-radius: $br;
+    background: var(--foreground-color);
+  }
+}
+
+.discussion-entries .discussion_entry {
+  padding: 12px 24px;
+}
+
+.discussion-entries .entry {
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 12px 0 48px 24px !important;
+}
+
+.discussion-entries .entry .entry {
+  border-top: none !important;
+}
+
+.ef-header {
+  padding: 0 !important;
+}
+
+// a quirky way to fix the border radius
+#discussion-managebar > .headerBar {
+  border-radius: 10px 10px 0 0; // top rounded
+  overflow: hidden;
+}
+
+#discussion-toolbar > .headerBar {
+  border-radius:  0 0 10px 10px; // bottom rounded
+  overflow: hidden;
+}

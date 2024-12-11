@@ -1,0 +1,43 @@
+@use 'lib' as *;
+@use 'theme' as *;
+
+#main {
+  .header-bar {
+    background: transparent;
+    padding: 0;
+
+    h1 {
+      font-size: $font-huge;
+    }
+  }
+
+  .ic-Action-header {
+    margin: 0;
+  }
+
+  .ic-Table td {
+    border: 0;
+  }
+
+  #my_courses_table, #past_enrollments_table {
+    @extend .boxshadow;
+    background: var(--foreground-color);
+    border-radius: $br;
+
+    tbody {
+      .course-list-table-row  {
+        position: relative;
+        border: 0;
+        padding: 0 20px;
+
+        &:hover{
+          background: transparent;
+        }
+      }
+  
+      .course-list-unpublished-course-row {
+        background: transparent;
+      }
+    }
+  }
+}
